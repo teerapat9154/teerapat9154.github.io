@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>โครงการทั้งหมด | Luxury Condo Bangkok</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Filter logic
+    function filterProjects() {
+      const location = document.getElementById("filter-location").value;
+      const price = document.getElementById("filter-price").value;
+
+      const projects = document.querySelectorAll(".project-card");
+      projects.forEach(card => {
+        const cardLocation = card.dataset.location;
+        const cardPrice = parseInt(card.dataset.price);
+
+        const locationMatch = (location === "all" || cardLocation === location);
+        const priceMatch = (price === "all" || (price === "low" && cardPrice <= 7000000) || (price === "high" && cardPrice > 7000000));
+
+        if (locationMatch && priceMatch) {
+          card.classList.remove("hidden");
+        } else {
+          card.classList.add("hidden");
+        }
+      });
+    }
+  </script>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- Header -->
+  <!-- Header -->
+  <header class="bg-gray-900 text-white shadow-md sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+
+    <!-- แบรนด์ + เมนู -->
+    <div class="flex flex-col md:flex-row md:items-center w-full md:w-auto space-y-2 md:space-y-0 md:space-x-6">
+      <h1 class="text-2xl font-bold tracking-wide">LuxuryCondoBKK</h1>
+      <nav class="space-x-4 text-sm">
+        <a href="index.html" class="hover:text-yellow-400 transition">หน้าแรก</a>
+        <a href="project.html" class="hover:text-yellow-400 transition">โครงการ</a>
+        <a href="contact.html" class="hover:text-yellow-400 transition">ติดต่อ</a>
+      </nav>
+    </div>
+
+    <!-- กล่องค้นหา -->
+    <div class="w-full md:w-1/3">
+  <form onsubmit="return searchRedirect(event)" class="flex">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="ค้นหาโครงการ..."
+      class="w-full py-2 px-4 rounded-l-full text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+    />
+    <button
+      type="submit"
+      class="bg-yellow-400 text-black font-semibold px-4 rounded-r-full hover:bg-yellow-500 transition"
+    >
+      🔍
+    </button>
+  </form>
+</div>
+</div>
+</header>
+
+  <!-- Filter Bar -->
+  <section class="bg-gray-100 py-6">
+  <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row gap-4 md:items-center justify-between">
+    
+    <div class="flex-1 min-w-0">
+      <label class="mr-2 font-semibold">เลือกทำเล:</label>
+      <select id="filter-location" class="py-2 px-4 border rounded w-full max-w-xs" onchange="filterProjects()">
+        <option value="all">ทั้งหมด</option>
+        <option value="สาทร">สาทร</option>
+        <option value="สุขุมวิท">สุขุมวิท</option>
+        <option value="สีลม–บางรัก">สีลม–บางรัก</option>
+        <option value="ปทุมวัน">ปทุมวัน</option>
+        <option value="เอกมัย–พระโขนง">เอกมัย–พระโขนง</option>
+      </select>
+    </div>
+
+    <div class="flex-1 min-w-0">
+      <label class="mr-2 font-semibold">ช่วงราคา:</label>
+      <select id="filter-price" class="py-2 px-4 border rounded w-full max-w-xs" onchange="filterProjects()">
+        <option value="all">ทั้งหมด</option>
+        <option value="low">ต่ำกว่า 7 ล้านบาท</option>
+        <option value="high">มากกว่า 7 ล้านบาท</option>
+      </select>
+    </div>
+
+  </div>
+</section>
+
+  <!-- Projects Grid -->
+  <!-- Projects Grid -->
+<section class="py-12">
+  <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Project Card 1 -->
+    <a href="grand-sathorn.html" class="block">
+  <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="สาทร" data-price="11590000">
+    <img src="img/01.jpg" alt="Tait Sathorn 12 Condominium" class="w-full h-48 object-cover rounded mb-4">
+    <h2 class="text-lg font-bold">Tait Sathorn 12 Condominium</h2>
+    <p class="text-sm text-gray-600">ทำเล: สาทร | เริ่มต้น 11.5 ล้านบาท</p>
+    <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+  ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+  </div>
+</a>
+
+    <!-- Project Card 2 -->
+      <a href="Siamese.html" class="block">
+    <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="สุขุมวิท" data-price="10490000">
+      <img src="img/03.jpg" alt="Noble Central Park" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-lg font-bold">Siamese Exclusive Sukhumvit 31</h2>
+      <p class="text-sm text-gray-600">ทำเล: สุขุมวิท | เริ่มต้น 10.4 ล้านบาท</p>
+      <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+  ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+    </div>
+ </a>
+    <!-- Project Card 3 -->
+    <a href="Nimit.html" class="block">
+    <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="ปทุมวัน" data-price="48000000">
+      <img src="img/04.jpg" alt="Noble Central Park" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-lg font-bold">Nimit Langsuan</h2>
+      <p class="text-sm text-gray-600">ทำเล: ปทุมวัน | เริ่มต้น 48 ล้านบาท</p>
+      <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+  ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+    </div>
+ </a>
+    <!-- Project Card 4 -->
+<a href="Dusit.html" class="block">
+    <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="สีลม–บางรัก" data-price="55000000">
+      <img src="img/05.jpg" alt="Noble Central Park" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-lg font-bold">Dusit Residences</h2>
+      <p class="text-sm text-gray-600">ทำเล: สีลม–บางรัก | เริ่มต้น 55 ล้านบาท</p>
+      <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+  ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+    </div>
+ </a>
+
+<!-- Project Card 5 -->
+<a href="The Lofts.html" class="block">
+    <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="เอกมัย–พระโขนง" data-price="4500000">
+      <img src="img/06.jpg" alt="Noble Central Park" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-lg font-bold">The Lofts Ekkamai</h2>
+      <p class="text-sm text-gray-600">ทำเล: เอกมัย–พระโขนง | เริ่มต้น 4.5 ล้านบาท</p>
+      <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+  ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+    </div>
+ </a>
+
+<!-- Project Card 6 -->
+<a href="ศาลาแดง.html" class="block">
+    <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="สาทร" data-price="18000000">
+      <img src="img/007.jpg" alt="Noble Central Park" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-lg font-bold">Saladaeng One</h2>
+      <p class="text-sm text-gray-600">ทำเล: สาทร | เริ่มต้น 18 ล้านบาท</p>
+      <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+  ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+    </div>
+ </a>
+ <!-- Project Card 7 -->
+<a href="มิวนีค.html" class="block">
+    <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="สุขุมวิท" data-price="6900000">
+      <img src="img/08.jpg" alt="Noble Central Park" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-lg font-bold">MUNIQ Sukhumvit 23</h2>
+      <p class="text-sm text-gray-600">ทำเล: สุขุมวิท | เริ่มต้น 6.9 ล้านบาท</p>
+     <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+  ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+    </div>
+ </a>
+ <!-- Project Card 8 -->
+<a href="eden.html" class="block">
+    <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="เอกมัย–พระโขนง" data-price="70000000">
+      <img src="img/09.jpg" alt="Noble Central Park" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-lg font-bold">Siamese Exclusive Sukhumvit 31</h2>
+      <p class="text-sm text-gray-600">ทำเล: เอกมัย–พระโขนง | เริ่มต้น 70 ล้านบาท</p>
+      <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+  ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+    </div>
+ </a>
+ <!-- Project Card 9 -->
+<a href="msilom.html" class="block">
+    <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="สีลม–บางรัก" data-price="9800000">
+      <img src="img/10.jpg" alt="Noble Central Park" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-lg font-bold">M Silom</h2>
+      <p class="text-sm text-gray-600">ทำเล: สีลม–บางรัก | เริ่มต้น 9.8 ล้านบาท</p>
+      <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+  ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+    </div>
+ </a>
+ <!-- Project Card 10 -->
+<a href="noble.html" class="block">
+    <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="สุขุมวิท" data-price="13900000">
+      <img src="img/11.jpg" alt="Noble Central Park" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-lg font-bold">Noble State Sukhumvit 39</h2>
+      <p class="text-sm text-gray-600">ทำเล: สุขุมวิท | เริ่มต้น 13.9 ล้านบาท</p>
+      <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+  ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+    </div>
+ </a>
+ <!-- Project Card 11 -->
+<a href="98.html" class="block">
+    <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="ปทุมวัน" data-price="67900000">
+      <img src="img/12.jpg" alt="Noble Central Park" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-lg font-bold">98 Wireless</h2>
+      <p class="text-sm text-gray-600">ทำเล: ปทุมวัน | เริ่มต้น 67.9 ล้านบาท</p>
+     <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+  ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+    </div>
+ </a>
+ <!-- Project Card 12 -->
+<a href="sukhothai.html" class="block">
+    <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="สาทร" data-price="28000000">
+      <img src="img/13.jpg" alt="Noble Central Park" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-lg font-bold">The Sukhothai Residences</h2>
+      <p class="text-sm text-gray-600">ทำเล: สาทร | เริ่มต้น 28 ล้านบาท</p>
+      <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+  ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+    </div>
+ </a>
+ <!-- Project Card 13 -->
+<a href="refer.html" class="block">
+    <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="เอกมัย–พระโขนง" data-price="7600000">
+      <img src="img/14.jpg" alt="Noble Central Park" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-lg font-bold">Reference ekkamai </h2>
+      <p class="text-sm text-gray-600">ทำเล: เอกมัย–พระโขนง | เริ่มต้น 7.6 ล้านบาท</p>
+     <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+  ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+    </div>
+ </a>
+ <!-- Project Card 14 -->
+<a href="park.html" class="block">
+    <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="สีลม–บางรัก" data-price="6090000">
+      <img src="img/15.jpg" alt="Noble Central Park" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-lg font-bold">Park Origin Chula-Samyan</h2>
+      <p class="text-sm text-gray-600">ทำเล: สีลม–บางรัก | เริ่มต้น 6 ล้านบาท</p>
+      <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+  ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+    </div>
+ </a>
+ <!-- Project Card 15 -->
+<a href="ashton.html" class="block">
+    <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="สุขุมวิท" data-price="14900000">
+      <img src="img/16.jpg" alt="Noble Central Park" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-lg font-bold">Ashton Residence 41</h2>
+      <p class="text-sm text-gray-600">ทำเล: สุขุมวิท | เริ่มต้น 14.9 ล้านบาท</p>
+     <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+  ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+    </div>
+ </a>
+ <!-- Project Card 16 -->
+<a href="rhythm.html" class="block">
+    <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="เอกมัย–พระโขนง" data-price="4900000">
+      <img src="img/17.jpg" alt="Noble Central Park" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-lg font-bold">Rhythm Sukhumvit 44/1</h2>
+      <p class="text-sm text-gray-600">ทำเล: เอกมัย–พระโขนง | เริ่มต้น 4.9 ล้านบาท</p>
+      <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+  ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+    </div>
+ </a>
+ <!-- Project Card 17 -->
+<a href="marque.html" class="block">
+    <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="สุขุมวิท" data-price="45000000">
+      <img src="img/18.jpg" alt="Noble Central Park" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-lg font-bold">Marque Sukhumvit</h2>
+      <p class="text-sm text-gray-600">ทำเล: สุขุมวิท | เริ่มต้น 45 ล้านบาท</p>
+      <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+  ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+    </div>
+ </a>
+ <!-- Project Card 18 -->
+<a href="scope.html" class="block">
+    <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="ปทุมวัน" data-price="36500000">
+      <img src="img/19.jpg" alt="Noble Central Park" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-lg font-bold">Scope Langsuan</h2>
+      <p class="text-sm text-gray-600">ทำเล: ปทุมวัน | เริ่มต้น 36.5 ล้านบาท</p>
+      <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+  ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+    </div>
+ </a>
+ <!-- Project Card 19 -->
+<a href="ritz.html" class="block">
+    <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="สีลม–บางรัก" data-price="65000000">
+      <img src="img/20.jpg" alt="Noble Central Park" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-lg font-bold">The Ritz Carlton Residences</h2>
+      <p class="text-sm text-gray-600">ทำเล: สีลม–บางรัก | เริ่มต้น 65 ล้านบาท</p>
+      <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+  ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+    </div>
+ </a>
+ <!-- Project Card 20 -->
+<a href="ashtonsilom.html" class="block">
+    <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="สีลม–บางรัก" data-price="6800000">
+      <img src="img/21.jpg" alt="Noble Central Park" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-lg font-bold">Ashton Silom</h2>
+      <p class="text-sm text-gray-600">ทำเล: สีลม–บางรัก | เริ่มต้น 6.8 ล้านบาท</p>
+     <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+  ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+    </div>
+ </a>
+ <!-- Project Card 21 -->
+<a href="the seed.html" class="block">
+    <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="ปทุมวัน" data-price="5400000">
+      <img src="img/22.jpg" alt="Noble Central Park" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-lg font-bold"> The Seed Memories Siam</h2>
+      <p class="text-sm text-gray-600">ทำเล: ปทุมวัน | เริ่มต้น 5.4 ล้านบาท</p>
+      <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+  ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+    </div>
+ </a>
+ <!-- Project Card 22 -->
+<a href="m.html" class="block">
+    <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="เอกมัย–พระโขนง" data-price="3750000">
+      <img src="img/23.jpg" alt="Noble Central Park" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-lg font-bold">M Thonglor 10</h2>
+      <p class="text-sm text-gray-600">ทำเล: เอกมัย–พระโขนง | เริ่มต้น 3.7 ล้านบาท</p>
+      <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+  ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+    </div>
+ </a>
+ <!-- Project Card 23 -->
+<a href="met.html" class="block">
+    <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="สาทร" data-price="16000000">
+      <img src="img/24.jpg" alt="Noble Central Park" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-lg font-bold">The Met Sathorn</h2>
+      <p class="text-sm text-gray-600">ทำเล: สาทร | เริ่มต้น 16 ล้านบาท</p>
+      <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+  ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+    </div>
+ </a>
+ <!-- Project Card 24 -->
+<a href="mag.html" class="block">
+    <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="ปทุมวัน" data-price="7400000">
+      <img src="img/26.jpg" alt="Noble Central Park" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-lg font-bold">Magnolias Ratchadamri Boulevard</h2>
+      <p class="text-sm text-gray-600">ทำเล: ปทุมวัน | เริ่มต้น 7.4 ล้านบาท</p>
+     <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+   ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+    </div>
+ </a>
+ <!-- Project Card 25 -->
+<a href="klass.html" class="block">
+    <div class="project-card border rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition duration-300 cursor-pointer" data-location="สีลม–บางรัก" data-price="4800000">
+      <img src="img/25.jpg" alt="Noble Central Park" class="w-full h-48 object-cover rounded mb-4">
+      <h2 class="text-lg font-bold">Siamese Exclusive Sukhumvit 31</h2>
+      <p class="text-sm text-gray-600">ทำเล: สีลม–บางรัก | เริ่มต้น 4.8 ล้านบาท</p>
+      <div class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-yellow-400 bg-yellow-400 text-black font-medium text-sm hover:bg-black hover:text-yellow-400 transition duration-300 shadow-md hover:shadow-lg">
+   ดูรายละเอียด
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+    </div>
+ </a>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-10">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-sm">
+      <div>
+        <h4 class="font-bold mb-2">LuxuryCondoBKK</h4>
+        <p>เว็บไซต์แนะนำโครงการคอนโดหรู ทำเลดี พร้อมข้อมูลครบถ้วนเพื่อการตัดสินใจที่ดีที่สุด</p>
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">ลิงก์</h4>
+        <ul>
+          <li><a href="index.html" class="hover:text-yellow-400">หน้าแรก</a></li>
+          <li><a href="project.html" class="text-yellow-400 font-semibold">โครงการ</a></li>
+          <li><a href="contact.html" class="hover:text-yellow-400">ติดต่อ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">ติดตามเรา</h4>
+        <p>Facebook | Instagram | Line</p>
+      </div>
+    </div>
+    <div class="text-center text-xs mt-6 border-t border-gray-700 pt-4">
+      &copy; 2025 LuxuryCondoBKK. All rights reserved.
+    </div>
+  </footer>
+<script>
+  function filterProjects() {
+    const location = document.getElementById("filter-location").value;
+    const price = document.getElementById("filter-price").value;
+
+    const projects = document.querySelectorAll(".project-card");
+
+    projects.forEach(card => {
+      const cardLocation = card.dataset.location;
+      const cardPrice = parseInt(card.dataset.price);
+
+      const locationMatch = (location === "all" || cardLocation === location);
+      const priceMatch = (price === "all" || 
+        (price === "low" && cardPrice <= 7000000) || 
+        (price === "high" && cardPrice > 7000000)
+      );
+
+      const projectLink = card.closest("a"); // <a href="...">
+
+      if (locationMatch && priceMatch) {
+        projectLink.classList.remove("hidden");
+      } else {
+        projectLink.classList.add("hidden");
+      }
+    });
+  }
+
+  function searchRedirect(event) {
+    event.preventDefault(); // ป้องกันไม่ให้ form ส่งแบบปกติ
+    const query = document.getElementById("searchInput").value.trim().toLowerCase();
+
+    // แมปคำค้นหากับไฟล์โครงการ
+    const projectMap = {
+    "tait sathorn 12": "grand-sathorn.html",
+      "siamese exclusive sukhumvit 31": "Siamese.html",
+      "nimit langsuan": "Nimit.html",
+      "dusit residences": "Dusit.html",
+      "the lofts ekkamai": "The Lofts.html",
+      "saladaeng one": "ศาลาแดง.html",
+      "muniq sukhumvit 23":"มิวนีค.html",
+      "eden ekkamai": "eden.html",
+      "m silom": "msilom.html",
+      "noble state sukhumvit 39": "noble.html",
+      "98 wireless": "98.html",
+      "the sukhothai residences":"sukhothai.html",
+      "reference ekkamai":"refer.html",
+      "park origin chula-samyan":"park.html",
+      "ashton residence 41": "ashton.html",
+      "rhythm sukhumvit":"rhythm.html",
+      "marque sukhumvit":"marque.html",
+      "scope langsuan":"scope.html",
+      "the ritz carlton residences":"ritz.html",
+      "ashton silom":"ashtonsilom.html",
+      "m thonglor 10":"m.html",
+      "the met sathron":"met.html",
+        "magnolias ratchadamri ":"mag.html",
+       "klass silom" :"klass.html"
+    };
+
+    if (projectMap[query]) {
+      window.location.href = projectMap[query]; // redirect ไปหน้าโครงการ
+    } else {
+      alert("ไม่พบโครงการที่คุณค้นหา");
+    }
+
+    return false;
+  }
+</script>
+</body>
+</html>
