@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luxury Condo Bangkok</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .shine-animation {
+    background-size: 200%;
+    animation: shine 2.5s linear infinite;
+  }
+
+  @keyframes shine {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-down {
+    animation: fadeInDown 1s ease-out both;
+  }
+  .glow-shine {
+  position: relative;
+  animation: glow 2.5s ease-in-out infinite;
+  color: #d4af37; /* สีทองนวล */
+  text-shadow:
+    0 0 3px rgba(212, 175, 55, 0.7),
+    0 0 6px rgba(212, 175, 55, 0.5),
+    0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow:
+      0 0 2px rgba(212, 175, 55, 0.5),
+      0 0 4px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    text-shadow:
+      0 0 6px rgba(255, 215, 0, 0.7),
+      0 0 12px rgba(255, 215, 0, 0.4),
+      0 0 18px rgba(218, 165, 32, 0.3);
+  }
+}
+</style>
+</style>
+</style>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- Header -->
+  <header class="bg-gray-900 text-white shadow-md sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+
+    <!-- แบรนด์ + เมนู -->
+    <div class="flex flex-col md:flex-row md:items-center w-full md:w-auto space-y-2 md:space-y-0 md:space-x-6">
+      <h1 class="text-2xl font-bold tracking-wide">LuxuryCondoBKK</h1>
+      <nav class="space-x-4 text-sm">
+        <a href="index.html" class="hover:text-yellow-400 transition">หน้าแรก</a>
+        <a href="project.html" class="hover:text-yellow-400 transition">โครงการ</a>
+        <a href="contact.html" class="hover:text-yellow-400 transition">ติดต่อ</a>
+      </nav>
+    </div>
+
+    <!-- กล่องค้นหา -->
+    <div class="w-full md:w-1/3">
+  <form onsubmit="return searchRedirect(event)" class="flex">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="ค้นหาโครงการ..."
+      class="w-full py-2 px-4 rounded-l-full text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+    />
+    <button
+      type="submit"
+      class="bg-yellow-400 text-black font-semibold px-4 rounded-r-full hover:bg-yellow-500 transition"
+    >
+      🔍
+    </button>
+  </form>
+</div>
+
+</div>
+</header>
+
+
+  <!-- Hero Section -->
+  <section class="relative h-[70vh] flex items-center justify-center">
+  <img src="img/ban.jpg" alt="Hero Image" class="absolute inset-0 w-full h-full object-cover" />
+  <div class="relative bg-black bg-opacity-60 p-10 rounded-xl text-white text-center shadow-xl z-10">
+    <h2 class="text-4xl md:text-5xl font-extrabold mb-4 glow-shine">
+  คอนโดหรู ใจกลางกรุงเทพฯ
+</h2>
+<p class="text-lg md:text-xl mb-6 text-white/90 animate-fade-in-down">
+  แหล่งรวมโครงการคุณภาพ ใกล้ BTS, MRT และไลฟ์สไตล์ระดับพรีเมียม
+</p>
+    <a href="project.html" class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 px-8 rounded-full transition duration-300 shadow-lg hover:shadow-xl">
+      ดูโครงการ
+    </a>
+  </div>
+</section>
+
+  <!-- Featured Projects -->
+  <section class="py-20 bg-gradient-to-b from-gray-100 to-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h3 class="text-3xl font-bold mb-10 text-center">โครงการแนะนำ</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <a href="grand-sathorn.html" class="block bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden" data-name="Tait Sathorn 12 Condominium">
+        <img src="img/01.jpg" class="w-full h-48 object-cover" />
+        <div class="p-5">
+        <h4 class="text-xl font-semibold mb-2">Tait Sathorn 12 Condominium</h4>
+        <p class="text-sm text-gray-600">ใกล้ BTS เซนต์หลุยส์ | เริ่มต้น 11.5 ล้านบาท</p>
+        </div>
+        </a>
+        <!-- Card 2 -->
+        <a href="scope.html" class="block bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden" data-name="Scope Langsuan">
+        <img src="img/19.jpg" class="w-full h-48 object-cover" />
+        <div class="p-5">
+        <h4 class="text-xl font-semibold mb-2">Scope Langsuan</h4>
+        <p class="text-sm text-gray-600">ใกล้ BTS ชิดลม | เริ่มต้น 36.5 ล้านบาท</p>
+        </div>
+        </a>
+        <!-- Card 3 -->
+        <a href="ritz.html" class="block bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden" data-name="The Ritz Carlton Residences">
+        <img src="img/20.jpg" class="w-full h-48 object-cover" />
+        <div class="p-5">
+        <h4 class="text-xl font-semibold mb-2">The Ritz Carlton Residences</h4>
+        <p class="text-sm text-gray-600">ใกล้ BTS ช่องนนทรี | เริ่มต้น 65 ล้านบาท</p>
+        </div>
+        </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-10">
+  <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-sm">
+    <div>
+      <h4 class="font-bold mb-2">LuxuryCondoBKK</h4>
+      <p>เว็บไซต์แนะนำโครงการคอนโดหรู ทำเลดี พร้อมข้อมูลครบถ้วนเพื่อการตัดสินใจที่ดีที่สุด</p>
+    </div>
+    <div>
+      <h4 class="font-bold mb-2">ลิงก์</h4>
+      <ul>
+        <li><a href="index.html" class="hover:text-yellow-400">หน้าแรก</a></li>
+        <li><a href="project.html" class="hover:text-yellow-400">โครงการ</a></li>
+        <li><a href="contact.html" class="hover:text-yellow-400">ติดต่อ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold mb-2">ติดตามเรา</h4>
+      <p>Facebook | Instagram | Line</p>
+    </div>
+  </div>
+  <div class="text-center text-xs mt-6 border-t border-gray-700 pt-4">
+    &copy; 2025 LuxuryCondoBKK. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  function searchRedirect(event) {
+    event.preventDefault(); // ป้องกันไม่ให้ form ส่งแบบปกติ
+    const query = document.getElementById("searchInput").value.trim().toLowerCase();
+
+    // แมปคำค้นหากับไฟล์โครงการ
+    const projectMap = {
+   "tait sathorn 12": "grand-sathorn.html",
+      "siamese exclusive sukhumvit 31": "Siamese.html",
+      "nimit langsuan": "Nimit.html",
+      "dusit residences": "Dusit.html",
+      "the lofts ekkamai": "The Lofts.html",
+      "saladaeng one": "ศาลาแดง.html",
+      "muniq sukhumvit 23":"มิวนีค.html",
+      "eden ekkamai": "eden.html",
+      "m silom": "msilom.html",
+      "noble state sukhumvit 39": "noble.html",
+      "98 wireless": "98.html",
+      "the sukhothai residences":"sukhothai.html",
+      "reference ekkamai":"refer.html",
+      "park origin chula-samyan":"park.html",
+      "ashton residence 41": "ashton.html",
+      "rhythm sukhumvit":"rhythm.html",
+      "marque sukhumvit":"marque.html",
+      "scope langsuan":"scope.html",
+      "the ritz carlton residences":"ritz.html",
+      "ashton silom":"ashtonsilom.html",
+      "m thonglor 10":"m.html",
+      "the met sathron":"met.html",
+        "magnolias ratchadamri ":"mag.html",
+       "klass silom" :"klass.html"
+    };
+
+    if (projectMap[query]) {
+      window.location.href = projectMap[query]; // redirect ไปหน้าโครงการ
+    } else {
+      alert("ไม่พบโครงการที่คุณค้นหา");
+    }
+
+    return false;
+  }
+</script>
+
+</body>
+</html>
